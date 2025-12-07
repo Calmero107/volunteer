@@ -30,12 +30,37 @@ public class EventRegistration {
     @Column(nullable = false)
     private RegistrationStatus status;
 
+    // Ghi chú của admin hoặc user
+    @Column(columnDefinition = "TEXT")
+    private String notes;
+
+    // --- Thời điểm user đăng ký ---
     @Column(nullable = false)
-    private LocalDateTime createdAt;
+    private LocalDateTime registeredAt;
+
+    // --- Thời điểm update ---
+    private LocalDateTime updatedAt;
+
+    // --- Đánh dấu hoàn thành nhiệm vụ ---
+    @Column(nullable = false)
+    private boolean completed = false;
+
+    private LocalDateTime completedAt;
 
     @PrePersist
     protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
+        this.registeredAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public void markCompleted() {
+        this.completed = true;
+        this.completedAt = LocalDateTime.now();
     }
 
     public enum RegistrationStatus {

@@ -17,16 +17,3 @@ public class DashboardResponse {
     private List<PostResponse> recentPosts;
 }
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-class DashboardStats {
-    private Long totalEvents;
-    private Long upcomingEvents;
-    private Long myRegistrations;
-    private Long completedEvents;
-    private Long pendingApprovals;
-}
-

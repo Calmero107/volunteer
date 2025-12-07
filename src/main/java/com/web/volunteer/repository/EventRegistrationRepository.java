@@ -16,6 +16,8 @@ import java.util.Optional;
 @Repository
 public interface EventRegistrationRepository extends JpaRepository<EventRegistration, Long> {
 
+    long countByUser(User user);
+
     Optional<EventRegistration> findByUserAndEvent(User user, Event event);
 
     boolean existsByUserAndEvent(User user, Event event);

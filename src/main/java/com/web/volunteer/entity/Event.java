@@ -102,6 +102,7 @@ public class Event {
     public enum EventStatus {
         PENDING,
         APPROVED,
-        REJECTED
+        REJECTED,
+        COMPLETED
     }
 }
