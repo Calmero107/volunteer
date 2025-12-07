@@ -5,7 +5,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile-cache
+      dockerfile: Dockerfile
     container_name: volunteer
     ports:
       - "8080:8080"
